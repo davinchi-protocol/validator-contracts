@@ -32,7 +32,6 @@ const Login = ({ setuser }) => {
         "https://api.davinci.bz/login",
         { email: email, password: password }
       ).then((response) => {
-          console.log(response.data.data)
           localStorage.setItem("userAddress", response.data.data.userAddress);
           localStorage.setItem("userData", JSON.stringify(response.data.data));
           setuser();
@@ -40,7 +39,6 @@ const Login = ({ setuser }) => {
           dispatch(setUserToken(true));
           navigate("dashboard/home");
       }).catch((error) => {
-        console.log(error)
         if (error.response && error.response.status === 400) {
           toast("Username or password invalid.");
         } else {
@@ -51,7 +49,6 @@ const Login = ({ setuser }) => {
     } catch (e) {
       allow_login = true;
       toast("An error occurred. Please try again.");
-      console.log(e)
     }
   }
 

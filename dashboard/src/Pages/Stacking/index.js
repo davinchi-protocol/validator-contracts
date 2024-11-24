@@ -159,11 +159,10 @@ const Stacking = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       if (
-        count == 0 && props.allInvestments.length > 0
+        count == 0 || count ==0 && props.allInvestments.length > 0
       ) {
         set_DuBalance(props.DuBalance)
         await test1();
-        console.log("pantek")
         count++;
       }
     };
@@ -236,6 +235,7 @@ const Stacking = (props) => {
     if (chain.id != networkId) {
       stake_switch?.();
     } else {
+      console.log(props.ref_add)
       staking?.();
     }
   }

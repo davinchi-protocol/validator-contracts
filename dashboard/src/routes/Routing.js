@@ -155,7 +155,6 @@ const Routing = () => {
       .call({ from: regAddress });
 
     set_DuBalance(DuBalance);
-    console.log("gacor kang")
     setHistory(history);
     set_totalInvestment(TotalInvestment);
     set_totalEarning(totalEarning);
@@ -181,7 +180,7 @@ const Routing = () => {
 
   function setuser() {
     const regAddress = localStorage.getItem("userAddress");
-    const ref = localStorage.getItem("userData");
+    const ref = JSON.parse(localStorage.getItem("userData"));
     set_regAddress(regAddress);
     set_ref(ref.Ref_address);
     set_user(ref);

@@ -115,8 +115,7 @@ const Registration = () => {
     }
     if (
       ref != "" &&
-      ref != null &&
-      ref != "0x0000000000000000000000000000000000000000"
+      ref != null
     ) {
       if (!isValidAddress(ref)) {
         toast("'Referral Address' doesn't look like an address");
@@ -167,7 +166,8 @@ const Registration = () => {
       if (temp_address != null) {
         set_ref(temp_address);
       } else {
-        set_ref("0x0000000000000000000000000000000000000000");
+        alert("You are not allowed to register without referral address");
+        navigate("/");
       }
     count++;
   }, [temp_address]);
@@ -631,24 +631,23 @@ const Registration = () => {
               </div>
             </div>
             <div className="input-field flex flex-col gap-3">
-              <h1 className="input-lbl">Referral address (Optional)</h1>
+              <h1 className="input-lbl">Referral address (Mandatory)</h1>
               <div className="input-box flex items-center gap-3">
                 <input
                   type="text"
                   placeholder="Enter your referral address"
                   className="txt cleanbtn w-full"
                   value={ref}
-                  onChange={(e) => {
-                    set_ref(e.target.value);
-                  }}
+                  disabled={true}
                 />
               </div>
 
-              <ToastContainer />
+              
             </div>
             <div className="input-field flex flex-col gap-3 justify-end">
               <button className="btn-register button">Register Now</button>
             </div>
+            <ToastContainer />
           </div>
         </form>
       </div>
