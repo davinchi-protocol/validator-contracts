@@ -55,6 +55,7 @@ const Main = ({
   const [withdrawAmount, set_withdrawAmount] = useState(0);
 
   const notify = () => toast("Referral is Copied Successfully!");
+  const depositnotify = () => toast("Deposit Address is Copied!");
   const { address, isConnecting, isConnected, isDisconnected } = useAccount();
 
   const { chain } = useNetwork();
@@ -285,6 +286,22 @@ const Main = ({
                       color="white"
                       className=" text-2xl"
                       onClick={notify}
+                    />
+                  </button>
+                </CopyToClipboard>
+              </div>
+              <div className="d-link mt-2">
+                <p className="d-par">
+                  Deposit Address : 0xBF88cef66C821B95fb3A1755772908Fa06Ab4346
+                </p>
+                <CopyToClipboard
+                  text={`Deposit Address Copied Successfully!`}
+                >
+                  <button className="copy-icon flex items-center justify-center">
+                    <PiCopySimpleFill
+                      color="white"
+                      className=" text-2xl"
+                      onClick={depositnotify}
                     />
                   </button>
                 </CopyToClipboard>
