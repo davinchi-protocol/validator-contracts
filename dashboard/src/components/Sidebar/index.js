@@ -12,7 +12,7 @@ const Sidebar = () => {
   const navBarItems = [
     { lbl: "Dashboard", slug: "/dashboard/home" },
     {
-      lbl: "Investment",
+      lbl: "Become A Validator",
       slug: "/dashboard/stacking",
     },
     { lbl: "Transaction History", slug: "/dashboard/history" },

@@ -156,7 +156,7 @@ const Main = ({
     },
     {
       img: <GoGraph className=" text-6xl" />,
-      title: "Validator Staking Reward",
+      title: "Comission",
       price: (Number(totalReward) / 10 ** 18).toFixed(2),
     },
     {
@@ -166,7 +166,7 @@ const Main = ({
     },
     {
       img: <MdAccountBalanceWallet className=" text-6xl" />,
-      title: "Available Balance",
+      title: "Available Withdraw Balance",
       price: (Number(totalEarning) / 10 ** 18).toFixed(2),
     },
     {
@@ -258,7 +258,7 @@ const Main = ({
                     <div className="action flex items-center justify-end w-full">
                       <button
                         className={`btn-withdraw button ${
-                          item.title === "Available Balance" ? "show" : ""
+                          item.title === "Available Withdraw Balance" ? "show" : ""
                         }`}
                         onClick={(e) => setOpen(true)}
                       >
@@ -271,41 +271,48 @@ const Main = ({
                   </div>
                 ))}
               </div>
-              <div className="d-link mt-10">
-                <p className="d-par">
-                  Referral Link : {window.location.origin}/auth/register/?ref=
-                  {regAddress
-                    ? regAddress.slice(0, 4) + "...." + regAddress.slice(38, 42)
-                    : "Please connect"}
-                </p>
-                <CopyToClipboard
-                  text={`${window.location.origin}/auth/register/?ref=${regAddress}`}
-                >
-                  <button className="copy-icon flex items-center justify-center">
-                    <PiCopySimpleFill
-                      color="white"
-                      className=" text-2xl"
-                      onClick={notify}
-                    />
-                  </button>
-                </CopyToClipboard>
-              </div>
-              <div className="d-link mt-2">
-                <p className="d-par">
-                  Deposit Address : 0xBF88cef66C821B95fb3A1755772908Fa06Ab4346
-                </p>
-                <CopyToClipboard
-                  text={`Deposit Address Copied Successfully!`}
-                >
-                  <button className="copy-icon flex items-center justify-center">
-                    <PiCopySimpleFill
-                      color="white"
-                      className=" text-2xl"
-                      onClick={depositnotify}
-                    />
-                  </button>
-                </CopyToClipboard>
-              </div>
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 mt-10">
+  <div className="d-link">
+    <p className="d-par">
+      Referral Link: {window.location.origin}/auth/register/?ref=
+      {regAddress
+        ? regAddress.slice(0, 4) + "...." + regAddress.slice(38, 42)
+        : "Please connect"}
+    </p>
+    <CopyToClipboard
+      text={`${window.location.origin}/auth/register/?ref=${regAddress}`}
+    >
+      <button className="copy-icon flex items-center justify-center">
+        <PiCopySimpleFill
+          color="white"
+          className="text-2xl"
+          onClick={notify}
+        />
+      </button>
+    </CopyToClipboard>
+  </div>
+  <div className="d-link">
+    <p className="d-par">
+      Deposit Address: 0xBF88cef66C821B95fb3A1755772908Fa06Ab4346
+    </p>
+    <CopyToClipboard
+      text={`Deposit Address Copied Successfully!`}
+    >
+      <button className="copy-icon flex items-center justify-center">
+        <PiCopySimpleFill
+          color="white"
+          className="text-2xl"
+          onClick={depositnotify}
+        />
+      </button>
+    </CopyToClipboard>
+  </div>
+</div>
+
+
+
+
+
             </div>
           </div>
         </div>
